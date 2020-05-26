@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'dnd1';
+  movies = ['Heat', 'Xanadu', 'Reds', 'Harold & Maude'];
+
+  drop(event) {
+    console.log(`drop method`);
+    console.log(event);
+  }
 }
