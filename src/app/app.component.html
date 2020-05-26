@@ -3,22 +3,19 @@
 <h1>Drag this</h1>
 </div>
 
-
-
-
-<div cdkDropList (cdkDropListDropped)="drop($event)">
-<mat-tab-group>
-  <mat-tab cdkDrag label="First"> Content 1 </mat-tab>
-  <mat-tab cdkDrag label="Second">
-
-    <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let movie of movies" cdkDrag>{{movie}}</div>
-    </div>
-
-
-  </mat-tab>
-  <mat-tab cdkDrag label="Third"> Content 3 </mat-tab>
+<mat-tab-group #t cdkDropList (cdkDropListDropped)="dropped($event, t)">
+  <mat-tab *ngFor="let tab of tabs" label="{{tab.label}}" cdkDrag>{{tab.content}}</mat-tab>
 </mat-tab-group>
+
+<p>to get drag and drop to work on the mat-tab above
+  Seems I'll need a directive like the one demostrated in
+  <a href="https://stackblitz.com/edit/angular-mgrsxx-tfeye2?file=app%2Flazy-drag-drop.ts">
+    https://stackblitz.com/edit/angular-mgrsxx-tfeye2?file=app%2Flazy-drag-drop.ts</a>
+</p>
+
+
+<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+  <div class="example-box" *ngFor="let movie of movies" cdkDrag>{{movie}}</div>
 </div>
 
 
